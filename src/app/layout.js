@@ -15,8 +15,10 @@ const geistMono = Geist_Mono({
 
 export const metadata = {
   title: "Global Car Maintenance Center Al Nuzha",
-  description: "مركز العالمية لصيانة السيارات النزهة - خبرة خمس سنوات في تقديم خدمات صيانة شاملة لسيارتك",
-  keywords: "صيانة السيارات, ورشة ميكانيكا, كهرباء السيارات, إصلاح تكييف, فحص كومبيوتر, تنظيف بخاخات, تركيب قماشات, خرط هوبات, توضيب علب دريكسون, توضيب ماكينه, تربيط, جدة, السعودية",
+  description:
+    "مركز العالمية لصيانة السيارات النزهة - خبرة خمس سنوات في تقديم خدمات صيانة شاملة لسيارتك",
+  keywords:
+    "صيانة السيارات, ورشة ميكانيكا, كهرباء السيارات, إصلاح تكييف, فحص كومبيوتر, تنظيف بخاخات, تركيب قماشات, خرط هوبات, توضيب علب دريكسون, توضيب ماكينه, تربيط, جدة, السعودية",
   authors: [{ name: "Global Car Maintenance Center" }],
   creator: "Global Car Maintenance Center",
   publisher: "Global Car Maintenance Center",
@@ -31,7 +33,8 @@ export const metadata = {
   },
   openGraph: {
     title: "Global Car Maintenance Center Al Nuzha",
-    description: "مركز العالمية لصيانة السيارات النزهة - خبرة خمس سنوات في تقديم خدمات صيانة شاملة لسيارتك",
+    description:
+      "مركز العالمية لصيانة السيارات النزهة - خبرة خمس سنوات في تقديم خدمات صيانة شاملة لسيارتك",
     url: "https://globalcarmaintenance.com",
     siteName: "Global Car Maintenance Center",
     locale: "ar_SA",
@@ -40,7 +43,8 @@ export const metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Global Car Maintenance Center Al Nuzha",
-    description: "مركز العالمية لصيانة السيارات النزهة - خبرة خمس سنوات في تقديم خدمات صيانة شاملة لسيارتك",
+    description:
+      "مركز العالمية لصيانة السيارات النزهة - خبرة خمس سنوات في تقديم خدمات صيانة شاملة لسيارتك",
   },
   icons: {
     icon: [
@@ -71,10 +75,9 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="ar" dir="rtl">
+    <html lang='en'>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+        className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         {children}
       </body>
     </html>
