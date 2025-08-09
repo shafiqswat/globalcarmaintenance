@@ -52,23 +52,16 @@ const HeroSection = () => {
         />
       </div>
 
-      {/* Floating Elements */}
-      <div className='absolute top-20 left-10 w-20 h-20 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full opacity-20 animate-pulse'></div>
-      <div className='absolute bottom-20 right-10 w-32 h-32 bg-gradient-to-br from-orange-500 to-red-500 rounded-full opacity-20 animate-pulse delay-1000'></div>
-      <div className='absolute top-1/2 left-1/4 w-16 h-16 bg-gradient-to-br from-green-500 to-blue-500 rounded-full opacity-20 animate-pulse delay-500'></div>
+      {/* Floating Elements - Positioned over contact cards area */}
+      <div className='absolute top-1/2 left-1/4 w-16 h-16 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full opacity-30 animate-pulse'></div>
+      <div className='absolute top-3/4 right-1/3 w-24 h-24 bg-gradient-to-br from-orange-500 to-red-500 rounded-full opacity-25 animate-pulse delay-1000'></div>
+      <div className='absolute top-2/3 left-1/2 w-12 h-12 bg-gradient-to-br from-green-500 to-blue-500 rounded-full opacity-35 animate-pulse delay-500'></div>
 
       <div className='container mx-auto px-4 py-20 relative z-10'>
         <div className='grid grid-cols-1 lg:grid-cols-2 gap-12 items-center'>
           {/* Content */}
           <div className='space-y-8 text-white'>
             <div className='space-y-6'>
-              <div className='inline-flex items-center space-x-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2 border border-white/20'>
-                <StarIcon className='w-5 h-5 text-yellow-400' />
-                <span className='text-sm font-medium'>
-                  خبرة خمس سنوات في تقديم خدمات صيانة شاملة لسيارتك
-                </span>
-              </div>
-
               <h1 className='text-4xl md:text-6xl lg:text-7xl font-bold leading-tight tracking-wide'>
                 <span className='bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent'>
                   صيانة سيارتك
