@@ -43,6 +43,15 @@ const HeroSection = () => {
         <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg%20width%3D%2260%22%20height%3D%2260%22%20viewBox%3D%220%200%2060%2060%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cg%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Cg%20fill%3D%22%23ffffff%22%20fill-opacity%3D%220.1%22%3E%3Ccircle%20cx%3D%2230%22%20cy%3D%2230%22%20r%3D%222%22/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')]"></div>
       </div>
 
+      {/* Background Image */}
+      <div className='absolute inset-0 opacity-20'>
+        <img
+          src='/images/image4.jpg'
+          alt='Car Service Background'
+          className='w-full h-full object-cover'
+        />
+      </div>
+
       {/* Floating Elements */}
       <div className='absolute top-20 left-10 w-20 h-20 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full opacity-20 animate-pulse'></div>
       <div className='absolute bottom-20 right-10 w-32 h-32 bg-gradient-to-br from-orange-500 to-red-500 rounded-full opacity-20 animate-pulse delay-1000'></div>
@@ -94,8 +103,16 @@ const HeroSection = () => {
               {contactInfo.map(({ icon: Icon, bg, label, value }, i) => (
                 <div
                   key={i}
-                  className='bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20'>
-                  <div className='flex flex-col items-center space-x-3'>
+                  className='bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20 relative overflow-hidden'>
+                  {/* Background Image */}
+                  <div className='absolute inset-0 opacity-10'>
+                    <img
+                      src={`/images/image${i + 1}.jpg`}
+                      alt='Service Background'
+                      className='w-full h-full object-cover'
+                    />
+                  </div>
+                  <div className='relative z-10 flex flex-col items-center space-x-3'>
                     <div
                       className={`w-12 h-12 ${bg} rounded-xl flex items-center justify-center flex-shrink-0`}>
                       <Icon className='w-6 h-6 text-white' />
@@ -148,7 +165,7 @@ const HeroSection = () => {
                   <div className='relative z-10 text-center text-white'>
                     <div className='w-32 h-32 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4 backdrop-blur-sm overflow-hidden'>
                       <img
-                        src='https://images.unsplash.com/photo-1485291571150-772bcfc10da5?w=128&h=128&fit=crop&crop=center'
+                        src='/images/image1.jpg'
                         alt='Car Service'
                         className='w-full h-full object-cover rounded-full'
                       />
@@ -162,14 +179,14 @@ const HeroSection = () => {
                   {/* Floating Car Images */}
                   <div className='absolute top-4 right-4 w-16 h-16 bg-white/20 rounded-full animate-bounce backdrop-blur-sm overflow-hidden'>
                     <img
-                      src='https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?w=64&h=64&fit=crop&crop=center'
+                      src='/images/image2.jpg'
                       alt='Car Engine'
                       className='w-full h-full object-cover rounded-full'
                     />
                   </div>
                   <div className='absolute bottom-4 left-4 w-12 h-12 bg-white/20 rounded-full animate-pulse backdrop-blur-sm overflow-hidden'>
                     <img
-                      src='https://images.unsplash.com/photo-1563720223185-11003d516935?w=48&h=48&fit=crop&crop=center'
+                      src='/images/image3.jpg'
                       alt='Car Tools'
                       className='w-full h-full object-cover rounded-full'
                     />
@@ -178,6 +195,22 @@ const HeroSection = () => {
                   {/* Additional Floating Elements */}
                   <div className='absolute top-8 left-8 w-8 h-8 bg-yellow-400 rounded-full animate-pulse opacity-80'></div>
                   <div className='absolute bottom-8 right-8 w-6 h-6 bg-green-400 rounded-full animate-bounce opacity-80'></div>
+
+                  {/* Additional Floating Images */}
+                  <div className='absolute top-1/2 right-1/4 w-10 h-10 bg-white/20 rounded-full animate-pulse backdrop-blur-sm overflow-hidden'>
+                    <img
+                      src='/images/image5.jpg'
+                      alt='Car Service'
+                      className='w-full h-full object-cover rounded-full'
+                    />
+                  </div>
+                  <div className='absolute bottom-1/3 left-1/3 w-8 h-8 bg-white/20 rounded-full animate-bounce backdrop-blur-sm overflow-hidden'>
+                    <img
+                      src='/images/image6.jpg'
+                      alt='Car Service'
+                      className='w-full h-full object-cover rounded-full'
+                    />
+                  </div>
                 </div>
               </div>
             </div>

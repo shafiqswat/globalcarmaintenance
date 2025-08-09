@@ -23,6 +23,47 @@ const Popup = dynamic(() => import("react-leaflet").then((mod) => mod.Popup), {
 
 const ContactSection = () => {
   const [isMapLoaded, setIsMapLoaded] = useState(false);
+  const contactInfo = [
+    {
+      id: 1,
+      bg: "bg-gradient-to-r from-blue-50 to-purple-50 border-blue-100",
+      iconBg: "bg-gradient-to-r from-blue-500 to-blue-600",
+      icon: <PhoneIcon className='w-6 h-6 text-white' />,
+      label: "الهاتف",
+      value: "+966 55 714 6247",
+      valueColor: "text-blue-600",
+    },
+    {
+      id: 2,
+      bg: "bg-gradient-to-r from-green-50 to-blue-50 border-green-100",
+      iconBg: "bg-gradient-to-r from-green-500 to-green-600",
+      icon: <LocationIcon className='w-6 h-6 text-white' />,
+      label: "العنوان",
+      value: "ال80، طريق المكرونه شارع, Jeddah 23536, Saudi Arabia",
+      valueColor: "text-green-600",
+    },
+    {
+      id: 3,
+      bg: "bg-gradient-to-r from-orange-50 to-red-50 border-orange-100",
+      iconBg: "bg-gradient-to-r from-orange-500 to-orange-600",
+      icon: <ClockIcon className='w-6 h-6 text-white' />,
+      label: "ساعات العمل",
+      value: [
+        "الأحد - الخميس: 8:00 ص - 6:00 م",
+        "الجمعة - السبت: 9:00 ص - 4:00 م",
+      ],
+      valueColor: "text-orange-600",
+    },
+    {
+      id: 4,
+      bg: "bg-gradient-to-r from-purple-50 to-pink-50 border-purple-100",
+      iconBg: "bg-gradient-to-r from-purple-500 to-purple-600",
+      icon: <span className='text-white text-xl font-bold'>@</span>,
+      label: "البريد الإلكتروني",
+      value: "info@globalcarmaintenance.com",
+      valueColor: "text-purple-600",
+    },
+  ];
 
   useEffect(() => {
     // Import leaflet CSS on client side
@@ -56,98 +97,42 @@ const ContactSection = () => {
 
         <div className='grid grid-cols-1 lg:grid-cols-2 gap-12'>
           {/* Contact Information */}
-          <div className='space-y-8'>
-            <div className='bg-white rounded-2xl shadow-xl p-8 border border-gray-100'>
-              <h3 className='text-2xl font-bold text-gray-900 mb-6 flex items-center'>
-                <div className='w-8 h-8 bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg flex items-center justify-center mr-3'>
-                  <span className='text-white font-bold'>📞</span>
+          <div className='space-y-6'>
+            {contactInfo.map((item) => (
+              <div
+                key={item.id}
+                className={`flex items-center space-x-4 p-4 rounded-xl border ${item.bg}`}>
+                <div
+                  className={`w-12 h-12 ${item.iconBg} rounded-xl flex items-center justify-center shadow-lg flex-shrink-0`}>
+                  {item.icon}
                 </div>
-                معلومات الاتصال
-              </h3>
-
-              <div className='space-y-6'>
-                <div className='flex items-center space-x-4 p-4 bg-gradient-to-r from-blue-50 to-purple-50 rounded-xl border border-blue-100'>
-                  <div className='w-12 h-12 bg-gradient-to-r from-blue-500 to-blue-600 rounded-xl flex items-center justify-center shadow-lg'>
-                    <PhoneIcon className='w-6 h-6 text-white' />
-                  </div>
-                  <div>
-                    <p className='font-semibold text-gray-900'>الهاتف</p>
-                    <p className='text-blue-600 font-medium'>
-                      +966 55 714 6247
+                <div className='min-w-0 flex-1'>
+                  <p className='font-semibold text-gray-900'>{item.label}</p>
+                  {Array.isArray(item.value) ? (
+                    item.value.map((line, i) => (
+                      <p
+                        key={i}
+                        className={`${item.valueColor} font-medium`}>
+                        {line}
+                      </p>
+                    ))
+                  ) : (
+                    <p
+                      className={`${item.valueColor} font-medium truncate`}
+                      title={item.value}>
+                      {item.value}
                     </p>
-                  </div>
-                </div>
-
-                <div className='flex items-center space-x-4 p-4 bg-gradient-to-r from-green-50 to-blue-50 rounded-xl border border-green-100'>
-                  <div className='w-12 h-12 bg-gradient-to-r from-green-500 to-green-600 rounded-xl flex items-center justify-center shadow-lg'>
-                    <LocationIcon className='w-6 h-6 text-white' />
-                  </div>
-                  <div>
-                    <p className='font-semibold text-gray-900'>العنوان</p>
-                    <p className='text-green-600 font-medium'>
-                      ال80، طريق المكرونه شارع, Jeddah 23536, Saudi Arabia
-                    </p>
-                  </div>
-                </div>
-
-                <div className='flex items-center space-x-4 p-4 bg-gradient-to-r from-orange-50 to-red-50 rounded-xl border border-orange-100'>
-                  <div className='w-12 h-12 bg-gradient-to-r from-orange-500 to-orange-600 rounded-xl flex items-center justify-center shadow-lg'>
-                    <ClockIcon className='w-6 h-6 text-white' />
-                  </div>
-                  <div>
-                    <p className='font-semibold text-gray-900'>ساعات العمل</p>
-                    <p className='text-orange-600 font-medium'>
-                      الأحد - الخميس: 8:00 ص - 6:00 م
-                    </p>
-                    <p className='text-orange-600 font-medium'>
-                      الجمعة - السبت: 9:00 ص - 4:00 م
-                    </p>
-                  </div>
-                </div>
-
-                <div className='flex items-center space-x-4 p-4 bg-gradient-to-r from-purple-50 to-pink-50 rounded-xl border border-purple-100'>
-                  <div className='w-12 h-12 bg-gradient-to-r from-purple-500 to-purple-600 rounded-xl flex items-center justify-center shadow-lg'>
-                    <span className='text-white text-xl font-bold'>@</span>
-                  </div>
-                  <div>
-                    <p className='font-semibold text-gray-900'>
-                      البريد الإلكتروني
-                    </p>
-                    <p className='text-purple-600 font-medium'>
-                      info@globalcarmaintenance.com
-                    </p>
-                  </div>
+                  )}
                 </div>
               </div>
-            </div>
-
-            {/* Quick Actions */}
-            <div className='bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl p-8 text-white'>
-              <h4 className='text-xl font-bold mb-6'>إجراءات سريعة</h4>
-              <div className='space-y-4'>
-                <button
-                  onClick={() => window.open("tel:+966557146247", "_self")}
-                  className='w-full bg-white/20 backdrop-blur-sm text-white py-4 px-6 rounded-xl font-medium hover:bg-white/30 transition-all duration-200 border border-white/20 flex items-center justify-center space-x-2'>
-                  <PhoneIcon className='w-5 h-5' />
-                  <span>اتصل الآن</span>
-                </button>
-                <button
-                  onClick={() =>
-                    window.open("https://wa.me/966557146247", "_blank")
-                  }
-                  className='w-full bg-green-600 text-white py-4 px-6 rounded-xl font-medium hover:bg-green-700 transition-all duration-200 flex items-center justify-center space-x-2'>
-                  <span className='text-xl'>📱</span>
-                  <span>واتساب</span>
-                </button>
-              </div>
-            </div>
+            ))}
           </div>
 
           {/* Contact Form */}
           <div className='bg-white rounded-2xl shadow-xl p-8 border border-gray-100'>
             <h3 className='text-2xl font-bold text-gray-900 mb-6 flex items-center'>
-              <div className='w-8 h-8 bg-gradient-to-r from-green-600 to-blue-600 rounded-lg flex items-center justify-center mr-3'>
-                <span className='text-white font-bold'>✉️</span>
+              <div className='w-10 h-10 bg-gradient-to-r from-green-600 to-blue-600 rounded-xl flex items-center justify-center mr-3 shadow-md p-2'>
+                <span className='text-white text-xl leading-none'>✉️</span>
               </div>
               أرسل لنا رسالة
             </h3>
