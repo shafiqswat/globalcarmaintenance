@@ -37,10 +37,10 @@ const Header = () => {
           <div className='flex items-center'>
             <Image
               src='/images/logo.png'
-              alt='JTE Repair Services Logo'
+              alt='GCM Repair Services Logo'
               width={120}
               height={100}
-              className='object-contain w-[120px] h-[96px] '
+              className='object-contain w-[120px] h-[80px] overflow-hidden '
             />
           </div>
 
